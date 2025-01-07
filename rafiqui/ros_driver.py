@@ -4,7 +4,6 @@ from std_msgs.msg import Int32
 
 from robot import Robot
 
-
 class JointSubscriber(Node):
     def __init__(self, motors):
         super().__init__('Joint_subscriber')
@@ -25,6 +24,7 @@ def main(args=None):
     rclpy.init(args=args)
     my_robot = Robot("config.json")
     ctrl_node = JointSubscriber(my_robot.motors)
+    print("ros driver launched")
 
     try:
         rclpy.spin(ctrl_node)
