@@ -1,0 +1,4 @@
+xarm~=0.0.4
+numpy~=1.26.4
+rclpy~=8.0.0
+setuptools~=68.1.2

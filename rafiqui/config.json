@@ -1,0 +1,345 @@
+{
+  "controller": {
+    "protocol": 2.0,
+    "baudrate": 1000000,
+    "attached_motors": [
+      "right_arm",
+      "left_arm",
+      "neck"
+    ],
+    "port": "/dev/ttyUSB0"
+  },
+  "motorgroups": {
+    "neck": [
+      "neck_x",
+      "neck_y",
+      "neck_z"
+    ],
+    "r_elbow_forearm": [
+      "r_elbow_1",
+      "r_elbow_2"
+    ],
+    "l_elbow_forearm": [
+      "l_elbow_1",
+      "l_elbow_2"
+    ],
+    "r_hand": [
+      "r_palm_h",
+      "r_palm_v",
+      "r_open",
+      "r_thump_x",
+      "r_thump_y",
+      "r_thump_1",
+      "r_thump_2",
+      "r_index_1",
+      "r_index_2",
+      "r_middle_1",
+      "r_middle_2",
+      "r_ring_1",
+      "r_ring_2",
+      "r_little_1",
+      "r_little_2"
+    ],
+    "l_hand": [
+      "l_palm_h",
+      "l_palm_v",
+      "l_open",
+      "l_thump_x",
+      "l_thump_y",
+      "l_thump_1",
+      "l_thump_2",
+      "l_index_1",
+      "l_index_2",
+      "l_middle_1",
+      "l_middle_2",
+      "l_ring_1",
+      "l_ring_2",
+      "l_little_1",
+      "l_little_2"
+    ],
+    "right_arm": [
+      "r_y_shoulder",
+      "r_x_shoulder",
+      "r_z_shoulder",
+      "r_elbow_forearm",
+      "r_hand"
+    ],
+    "left_arm": [
+      "l_y_shoulder",
+      "l_x_shoulder",
+      "l_z_shoulder",
+      "l_elbow_forearm",
+      "l_hand"
+    ]
+  },
+  "motors": {
+    "r_y_shoulder": {
+      "offset": 0.0,
+      "model": "XM-540",
+      "id": 11,
+      "orientation": "direct",
+      "gear_ratio": 2.0
+    },
+    "r_x_shoulder": {
+      "offset": -165.0,
+      "model": "XM-540",
+      "id": 12,
+      "orientation": "direct",
+      "gear_ratio": 2.0
+    },
+    "r_z_shoulder": {
+      "offset": 0.0,
+      "model": "MX-28",
+      "id": 13,
+      "orientation": "direct",
+      "gear_ratio": 2.0
+    },
+    "r_elbow_1": {
+      "offset": -360.0,
+      "model": "ME-28",
+      "id": 14,
+      "orientation": "direct",
+      "gear_ratio": 2.0
+    },
+    "r_elbow_2": {
+      "offset": -360.0,
+      "model": "ME-28",
+      "id": 15,
+      "orientation": "direct",
+      "gear_ratio": 2.0
+    },
+    "l_y_shoulder": {
+      "offset": 0.0,
+      "model": "XM-540",
+      "id": 21,
+      "orientation": "indirect",
+      "gear_ratio": 2.0
+    },
+    "l_x_shoulder": {
+      "offset": -165.0,
+      "model": "XM-540",
+      "id": 22,
+      "orientation": "indirect",
+      "gear_ratio": 2.0
+    },
+    "l_z_shoulder": {
+      "offset": 0.0,
+      "model": "MX-28",
+      "id": 23,
+      "orientation": "indirect",
+      "gear_ratio": 2.0
+    },
+    "l_elbow_1": {
+      "offset": 360.0,
+      "model": "ME-28",
+      "id": 24,
+      "orientation": "indirect",
+      "gear_ratio": 2.0
+    },
+    "l_elbow_2": {
+      "offset": 360.0,
+      "model": "ME-28",
+      "id": 25,
+      "orientation": "indirect",
+      "gear_ratio": 2.0
+    },
+    "r_palm_h": {
+      "offset": 0.0,
+      "model": "HX-35",
+      "id": 34,
+      "orientation": "direct"
+    },
+    "r_palm_v": {
+      "offset": 0.0,
+      "model": "HX-35",
+      "id": 35,
+      "orientation": "direct"
+    },
+    "r_thump_x": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 31,
+      "orientation": "direct"
+    },
+    "r_thump_y": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 32,
+      "orientation": "direct"
+    },
+    "r_open": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 33,
+      "orientation": "direct"
+    },
+    "r_thump_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 29,
+      "orientation": "direct"
+    },
+    "r_thump_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 30,
+      "orientation": "direct"
+    },
+    "r_index_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 21,
+      "orientation": "direct"
+    },
+    "r_index_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 22,
+      "orientation": "direct"
+    },
+    "r_middle_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 23,
+      "orientation": "direct"
+    },
+    "r_middle_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 24,
+      "orientation": "direct"
+    },
+    "r_ring_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 25,
+      "orientation": "direct"
+    },
+    "r_ring_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 26,
+      "orientation": "direct"
+    },
+    "r_little_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 27,
+      "orientation": "direct"
+    },
+    "r_little_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 28,
+      "orientation": "direct"
+    },
+    "l_palm_h": {
+      "offset": 0.0,
+      "model": "HX-35",
+      "id": 14,
+      "orientation": "direct"
+    },
+    "l_palm_v": {
+      "offset": 0.0,
+      "model": "HX-35",
+      "id": 15,
+      "orientation": "direct"
+    },
+    "l_thump_x": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 11,
+      "orientation": "direct"
+    },
+    "l_thump_y": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 11,
+      "orientation": "direct"
+    },
+    "l_open": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 13,
+      "orientation": "direct"
+    },
+    "l_thump_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 9,
+      "orientation": "direct"
+    },
+    "l_thump_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 10,
+      "orientation": "direct"
+    },
+    "l_index_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 1,
+      "orientation": "direct"
+    },
+    "l_index_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 2,
+      "orientation": "direct"
+    },
+    "l_middle_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 3,
+      "orientation": "direct"
+    },
+    "l_middle_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 4,
+      "orientation": "direct"
+    },
+    "l_ring_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 5,
+      "orientation": "direct"
+    },
+    "l_ring_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 6,
+      "orientation": "direct"
+    },
+    "l_little_1": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 7,
+      "orientation": "direct"
+    },
+    "l_little_2": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 8,
+      "orientation": "direct"
+    },
+    "neck_z": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 16,
+      "orientation": "direct"
+    },
+    "neck_y": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 17,
+      "orientation": "direct"
+    },
+    "neck_x": {
+      "offset": 0.0,
+      "model": "HX-12",
+      "id": 18,
+      "orientation": "direct"
+    }
+  }
+}
