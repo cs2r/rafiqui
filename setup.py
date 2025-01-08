@@ -10,6 +10,9 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name, ['rafiqui/config.json']),
+        ('share/' + package_name + '/launch', ['launch/start_robot.launch.py']),
+        
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+        'ros_driver = rafiqui.ros_driver:main',
         ],
     },
 )

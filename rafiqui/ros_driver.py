@@ -1,8 +1,11 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int32
-
-from robot import Robot
+from ament_index_python.packages import get_package_share_directory
+import os
+from .robot import Robot
 
 class JointSubscriber(Node):
     def __init__(self, motors):
@@ -22,7 +25,8 @@ class JointSubscriber(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    my_robot = Robot("config.json")
+    config_path = os.path.join(get_package_share_directory('rafiqui'), 'config.json')
+    my_robot = Robot(config_path)
     ctrl_node = JointSubscriber(my_robot.motors)
     print("ros driver launched")
 
