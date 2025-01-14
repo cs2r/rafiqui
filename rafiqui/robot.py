@@ -128,7 +128,9 @@ def _motor_extractor(robot, alias, name):
 position_range = {
     'MX': (0, 4096, 0, 360.0),
     'ME': (-12288, 12288, -1080, 1080.0),
-    'XM': (0, 4096, 0, 360.0)
+    'XM': (0, 4096, 0, 360.0),
+    'HX-35': (0, 1000, 0, 360.0),
+    'HX-12': (0, 1000, 0, 240.0)
 }
 
 
@@ -140,8 +142,10 @@ def dxl_to_degree(value, model):
         determined_model = 'ME'
     elif model.startswith('XM'):
         determined_model = 'XM'
-    elif model.startswith('SR'):
-        determined_model = 'SR'
+    elif model.startswith('HX-12'):
+        determined_model = 'HX-12'
+    elif model.startswith('HX-35'):
+        determined_model = 'HX-35'
     elif model.startswith('EX'):
         determined_model = 'EX'
     min_pos, max_pos, min_deg, max_deg = position_range[determined_model]
@@ -157,8 +161,10 @@ def degree_to_dxl(value, model):
         determined_model = 'ME'
     elif model.startswith('XM'):
         determined_model = 'XM'
-    elif model.startswith('SR'):
-        determined_model = 'SR'
+    elif model.startswith('HX-12'):
+        determined_model = 'HX-12'
+    elif model.startswith('HX-35'):
+        determined_model = 'HX-35'
     elif model.startswith('EX'):
         determined_model = 'EX'
     min_pos, max_pos, min_deg, max_deg = position_range[determined_model]
@@ -221,7 +227,7 @@ class Robot:
                                            motor_param["orientation"], motor_param["gear_ratio"], missing=True)
                     elif motor_param["model"].startswith("HX"):
                         self.add_motor(motor, motor_param["id"], motor_param["model"], motor_param["offset"],
-                                       motor_param["orientation"])
+                                       motor_param["orientation"], motor_param["gear_ratio"])
 
                 make_alias(self, config_data)
             print("Robot is READY")
@@ -240,7 +246,7 @@ class Robot:
         if model.startswith("MX") or model.startswith("XM") or model.startswith("ME"):
             motor = self.DXMotor(self.DXcontroller, motor_id, model, offset, orientation, gear_ratio, name)
         elif model.startswith("HX"):
-            motor = self.HWMotor(self.HWcontroller, motor_id, model, offset, orientation, name)
+            motor = self.HWMotor(self.HWcontroller, motor_id, model, offset, orientation, gear_ratio, name)
         else:
             motor = None
         if not missing:
@@ -317,8 +323,7 @@ class Robot:
             if self.set_torque(TORQUE_ENABLE):
                 dxl_comm_result, dxl_error = self.controller.packet.write4ByteTxRx(self.controller.port, self.id,
                                                                                    GOAL_POSITION_ADD,
-                                                                                   degree_to_dxl((
-                                                                                                         GOAL * self.gear_ratio + self.offset) * self.orientation,
+                                                                                   degree_to_dxl((GOAL * self.gear_ratio + self.offset) * self.orientation,
                                                                                                  self.model[0:2]))
                 if dxl_comm_result != COMM_SUCCESS:
                     print("%s" % self.controller.packet.getTxRxResult(dxl_comm_result))
@@ -365,20 +370,23 @@ class Robot:
             print("[ID:%03d] reboot Succeeded" % self.id)
 
     class HWMotor:
-        def __init__(self, controller, motor_id, model, offset, orientation, name=None):
+        def __init__(self, controller, motor_id, model, offset, orientation, gear_ratio, name=None):
             self.name = name if name is not None else "s" + str(motor_id)
             self.id = motor_id
             self.model = model
             self.offset = offset
             self.orientation = 1 if orientation == "direct" else -1
+            self.gear_ratio = gear_ratio
             self.initial = 200
             self.controller = controller
 
         def get_position(self):
-            return self.controller.getPosition(self.id)
+            return (dxl_to_degree(self.controller.getPosition(self.id), self.model[0:5]) - self.offset) * self.orientation / self.gear_ratio
 
         def set_position(self, GOAL, duration=10):
-            self.controller.setPosition(self.id, GOAL, duration)
+            servo_goal = degree_to_dxl((GOAL * self.gear_ratio + self.offset) * self.orientation, self.model[0:5])
+            print(servo_goal)
+            self.controller.setPosition(self.id, servo_goal, duration)
 
         def servo_off(self):
             self.controller.servoOff(self.id)

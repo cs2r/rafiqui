@@ -122,19 +122,55 @@ def create(frame, side):
         label_load_5.config(text=f"elbow_2 Load: {load_5}%")
         frame.after(500, update_load_labels)
 
+    def test_action():
+        print("neck_x: ", myRobot.neck_x.get_position())
+        print("neck_y: ", myRobot.neck_y.get_position())
+        print("neck_z: ", myRobot.neck_z.get_position())
+
+    def send_command():
+        servo_name = entry_id.get()
+        try:
+            command = int(entry_command.get())
+        except ValueError:
+            print("Error: ID and Command must be integers")
+            return
+
+        myRobot.motors[servo_name].set_position(command)
+
+
     if side == "top":
         # Add scales to the left frame
-        scale_neck_x = tk.Scale(frame, label="neck_x", from_=0, to=1000, orient="horizontal", command=adjust_neck_x, length=400)
+        scale_neck_x = tk.Scale(frame, label="neck_x", from_=-40, to=40, orient="horizontal", command=adjust_neck_x, length=400)
         scale_neck_x.pack(pady=5, fill="x", expand=True)
-        scale_neck_x.set(500)
+        scale_neck_x.set(0)
 
-        scale_neck_y = tk.Scale(frame, label="neck_y", from_=0, to=1000, orient="horizontal", command=adjust_neck_y, length=400)
+        scale_neck_y = tk.Scale(frame, label="neck_y", from_=-40, to=40, orient="horizontal", command=adjust_neck_y, length=400)
         scale_neck_y.pack(pady=5, fill="x", expand=True)
-        scale_neck_y.set(500)
+        scale_neck_y.set(0)
 
-        scale_neck_z = tk.Scale(frame, label="neck_z", from_=0, to=1000, orient="horizontal", command=adjust_neck_z, length=400)
+        scale_neck_z = tk.Scale(frame, label="neck_z", from_=-72, to=72, orient="horizontal", command=adjust_neck_z, length=400)
         scale_neck_z.pack(pady=5, fill="x", expand=True)
-        scale_neck_z.set(500)
+        scale_neck_z.set(0)
+
+        frame_row = tk.Frame(frame)
+        frame_row.pack(pady=10, fill="x", expand=True)
+
+        entry_id = tk.Entry(frame_row, width=10)
+        entry_id.insert(0, "Servo ID")
+        entry_id.grid(row=0, column=0, padx=5)
+
+        # Entry for Command
+        entry_command = tk.Entry(frame_row, width=20)
+        entry_command.insert(0, "Command")
+        entry_command.grid(row=0, column=1, padx=5)
+
+        # Button to send the command
+        button_send = tk.Button(frame_row, text="Send", command=send_command)
+        button_send.grid(row=0, column=2, padx=5)
+
+        # Add buttons to test
+        button_test = tk.Button(frame, text="Test", command=test_action)
+        button_test.pack(pady=10, fill="x", expand=True)
     else:
         scale_y_shoulder = tk.Scale(frame, label="y_shoulder", from_=-90, to=90, orient="horizontal", command=adjust_y_shoulder, length=400)
         scale_y_shoulder.pack(pady=5, fill="x", expand=True)
@@ -154,13 +190,13 @@ def create(frame, side):
         scale_forearm = tk.Scale(frame, label="forearm", from_=0, to=180, orient="horizontal", command=adjust_forearm, length=400)
         scale_forearm.pack(pady=5, fill="x", expand=True)
 
-        scale_palm_h = tk.Scale(frame, label="palm_h", from_=0, to=1000, orient="horizontal", command=adjust_palm_h, length=400)
+        scale_palm_h = tk.Scale(frame, label="palm_h", from_=-30, to=30, orient="horizontal", command=adjust_palm_h, length=400)
         scale_palm_h.pack(pady=5, fill="x", expand=True)
-        scale_palm_h.set(500)
+        scale_palm_h.set(0)
 
-        scale_palm_v = tk.Scale(frame, label="palm_v", from_=0, to=1000, orient="horizontal", command=adjust_palm_v, length=400)
+        scale_palm_v = tk.Scale(frame, label="palm_v", from_=-30, to=30, orient="horizontal", command=adjust_palm_v, length=400)
         scale_palm_v.pack(pady=5, fill="x", expand=True)
-        scale_palm_v.set(500)
+        scale_palm_v.set(0)
 
         # Add buttons to the right frame
         button_release = tk.Button(frame, text="Release", command=release_action)

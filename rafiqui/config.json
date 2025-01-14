@@ -145,201 +145,234 @@
     },
     "r_palm_h": {
       "offset": 0.0,
-      "model": "HX-35",
+      "model": "HX-35HM",
       "id": 34,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 4.0
     },
     "r_palm_v": {
       "offset": 0.0,
-      "model": "HX-35",
+      "model": "HX-35HM",
       "id": 35,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 4.0
     },
     "r_thump_x": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 31,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_thump_y": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 32,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_open": {
       "offset": 0.0,
-      "model": "HX-12",
+      "model": "HX-12H",
       "id": 33,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_thump_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 29,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_thump_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 30,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_index_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 21,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_index_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 22,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_middle_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 23,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_middle_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 24,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_ring_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 25,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_ring_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 26,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_little_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 27,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "r_little_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 28,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_palm_h": {
       "offset": 0.0,
-      "model": "HX-35",
+      "model": "HX-35HM",
       "id": 14,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 4.0
     },
     "l_palm_v": {
       "offset": 0.0,
-      "model": "HX-35",
+      "model": "HX-35HM",
       "id": 15,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 4.0
     },
     "l_thump_x": {
-      "offset": 0.0,
-      "model": "HX-12",
-      "id": 11,
-      "orientation": "direct"
+      "offset": -70.0,
+      "model": "HX-12H",
+      "id": 12,
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_thump_y": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 11,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_open": {
       "offset": 0.0,
-      "model": "HX-12",
+      "model": "HX-12H",
       "id": 13,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_thump_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 9,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_thump_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 10,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_index_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 1,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_index_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 2,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_middle_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 3,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_middle_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 4,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_ring_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 5,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_ring_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 6,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_little_1": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 7,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "l_little_2": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -70.0,
+      "model": "HX-12H",
       "id": 8,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 2.0
     },
     "neck_z": {
       "offset": 0.0,
-      "model": "HX-12",
+      "model": "HX-12H",
       "id": 16,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 1.66666666666666666667
     },
     "neck_y": {
       "offset": 0.0,
-      "model": "HX-12",
+      "model": "HX-12H",
       "id": 17,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 3.0
     },
     "neck_x": {
-      "offset": 0.0,
-      "model": "HX-12",
+      "offset": -15.0,
+      "model": "HX-12H",
       "id": 18,
-      "orientation": "direct"
+      "orientation": "direct",
+      "gear_ratio": 3.0
     }
   }
 }
