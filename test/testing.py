@@ -75,12 +75,13 @@ def create(frame, side):
             for att_name in dir(myRobot.right_arm):
                 motor = getattr(myRobot.right_arm, att_name)
                 if isinstance(motor, Robot.DXMotor) or isinstance(motor, Robot.Joint):
-                    motor.set_torque(False)
+                    print(att_name)
+                    motor.release()
         else:
             for att_name in dir(myRobot.left_arm):
                 motor = getattr(myRobot.left_arm, att_name)
                 if isinstance(motor, Robot.DXMotor) or isinstance(motor, Robot.Joint):
-                    motor.set_torque(False)
+                    motor.release()
 
     def reset_action():
         if side == "right":

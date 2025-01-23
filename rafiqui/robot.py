@@ -91,8 +91,18 @@ def get_position(self):
 
 
 def reboot(self):
-    self.elbow_1.reboot()
-    self.elbow_2.reboot()
+    if self.name in ["r_elbow_forearm", "l_elbow_forearm"]:
+        self.elbow_1.reboot()
+        self.elbow_2.reboot()
+    elif self.name in ["r_hand", "l_hand", "neck"]:
+        print("This joint does not has reboot() callback")
+
+def release(self):
+    if self.name in ["r_elbow_forearm", "l_elbow_forearm"]:
+        self.elbow_1.release()
+        self.elbow_2.release()
+    elif self.name in ["r_hand", "l_hand", "neck"]:
+        print("This joint does not has release() callback")
 
 
 def make_alias(robot, config):
@@ -103,14 +113,16 @@ def make_alias(robot, config):
         if alias_name in ["r_elbow_forearm", "l_elbow_forearm"]:
             motors.set_torque = types.MethodType(set_torque, motors)
             motors.reboot = types.MethodType(reboot, motors)
+            motors.release = types.MethodType(release, motors)
             motors.set_position = types.MethodType(set_position, motors)
             motors.get_position = types.MethodType(get_position, motors)
             motors.get_position()
         elif alias_name in ["r_hand", "l_hand"]:
             motors.set_torque = types.MethodType(set_torque, motors)
+            motors.reboot = types.MethodType(reboot, motors)
+            motors.release = types.MethodType(release, motors)
             motors.set_position = types.MethodType(set_position, motors)
             motors.get_position = types.MethodType(get_position, motors)
-            motors.get_position()
         setattr(robot, alias_name, motors)
 
 
@@ -182,6 +194,7 @@ class Robot:
             if name in ["r_elbow_forearm", "l_elbow_forearm"]:
                 self.elbow = 0
                 self.forearm = 0
+
 
     class Controller:
         def __init__(self, port, protocol_version, baudrate):
@@ -258,7 +271,7 @@ class Robot:
 
     def release_all(self):
         for motor in self.motors:
-            motor.set_torque(TORQUE_DISABLE)
+            motor.release()
         print("all motors released")
 
     def reset_all(self):
@@ -361,6 +374,9 @@ class Robot:
             self.go_to_pos(self.initial, 50)
             print("motor %d reseated" % self.id)
 
+        def release(self):
+            self.set_torque(TORQUE_DISABLE)
+
         def reboot(self):
             dxl_comm_result, dxl_error = self.controller.packet.reboot(self.controller.port, self.id)
             if dxl_comm_result != COMM_SUCCESS:
@@ -388,8 +404,12 @@ class Robot:
             print(servo_goal)
             self.controller.setPosition(self.id, servo_goal, duration)
 
-        def servo_off(self):
+        def release(self):
             self.controller.servoOff(self.id)
+
+
+
+
 
 
 if __name__ == "__main__":
